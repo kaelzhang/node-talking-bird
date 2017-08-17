@@ -1,5 +1,6 @@
-const test = require('ava')
+import browser from '../src'
+import test from 'ava'
 
-test('description', t => {
-  t.is(true, true)
+test('', async t => {
+
 })

@@ -5,8 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "test": "npm run build && node --harmony ./node_modules/.bin/ava --verbose --timeout=10s",
-    "prepublish": "npm run build"
+    "test": "nyc ava --verbose --timeout=10s",
+    "prepublish": "npm run build",
+    "report-cov": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "files": [
     "lib/"
@@ -47,7 +48,9 @@
     "babel-plugin-transform-inline-environment-variables": "^6.8.0",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-register": "^6.24.1"
+    "babel-register": "^6.24.1",
+    "codecov": "^2.3.0",
+    "nyc": "^11.1.0"
   },
   "dependencies": {
     "axios": "^0.16.2",
